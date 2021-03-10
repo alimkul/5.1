@@ -1,4 +1,6 @@
 package ru.netology
 
-class Post_source {
+class Post_source(
+
+) {
 }

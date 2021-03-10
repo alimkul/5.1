@@ -26,7 +26,8 @@ data class Post (
     val post_type:String,//тип записи, может принимать следующие значения: post, copy, reply, postpone, suggest.
     val post_source:Post_source,//информация о способе размещения записи. Описание объекта находится на отдельной странице.
 
-    val attachments:Array<Attachments>,//медиавложения записи (фотографии, ссылки и т.п.). Описание массива attachments находится на отдельной странице.
+    val attachments:Array<Attachments>
+                                      ,//медиавложения записи (фотографии, ссылки и т.п.). Описание массива attachments находится на отдельной странице.
 
     val geo:Geo?,//информация о местоположении , содержит поля:
 

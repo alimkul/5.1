@@ -1,4 +1,6 @@
 package ru.netology
 
-class Attachments {
+interface Attachments {
+    val type: String
+    val any: Any
 }
