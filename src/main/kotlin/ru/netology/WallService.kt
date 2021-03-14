@@ -5,10 +5,11 @@ import ru.netology.Exception.PostNotFoundException
 object WallService {
     private var posts = emptyArray<Post>()
     private var comments= emptyArray<Comment>()
-    var  previousId:Int=0
+    var previousId:Int=0
 
     fun add(post: Post): Post {
-       var post1:Post=post.copy(post_id= previousId+1)// надо создать var объект, чтоб изменять значения, а то самим post объектом не получиться
+        previousId++
+       var post1:Post=post.copy(post_id= previousId)// надо создать var объект, чтоб изменять значения, а то самим post объектом не получиться
         posts += post1
         return posts.last()
     }
@@ -22,26 +23,20 @@ object WallService {
         return false
     }
     fun createComment(comment: Comment){
-        try {
-            var check = false
-            for (currentPost in posts) {
-                if (comment.id == currentPost.post_id) {
-                    comments += comment
-                    check = true
-                    break
-                }
-            }
-            if (!check) {
-                throw PostNotFoundException()
-            } else {
-                print("Add comment")
+        var check = false
+        for (currentPost in posts) {
+            print(currentPost.post_id)
+            if (comment.id == currentPost.post_id) {//мы используем новый айди поста, когда добавили пост в массив его айди изменился
+                comments += comment
+                check = true
+                break
             }
         }
-        catch (e:PostNotFoundException)    {
-            print("no post with id")
+        if (!check) {
+            throw PostNotFoundException()
+        } else {
+            print("Add comment")
         }
-
-
     }
 
 }

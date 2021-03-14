@@ -130,19 +130,21 @@ class WallServiceTest{
     @Test(expected = PostNotFoundException::class)
     fun createCommentTestExp(){// проверка исключения
         val service=WallService
-
-        val comment=Comment(1,1,1,"Asd",null,1,1, emptyArray(), emptyArray(),null)
+        service.add(
+            Post(100, attachments = emptyArray(),copy_history = emptyArray())
+        )
+        val comment=Comment(10,1,1,"Asd",null,1,1, emptyArray(), emptyArray(),null)
 
 
         service.createComment(comment)
     }
-    @Test(expected = PostNotFoundException::class)
+    @Test
     fun createCommentTest(){
         val service=WallService
 
-        val comment=Comment(1,1,1,"Asd",null,1,1, emptyArray(), emptyArray(),null)
+        val comment=Comment(2,1,1,"Asd",null,1,1, emptyArray(), emptyArray(),null)
 
-        service.add(Post(1,1,1,1,1,"Shynggys",
+        service.add(Post(1001,1,1,1,1,"Shynggys",
                 1,1,true,
                 CommentPost(2,true,false,false,true),
                 Copyright(1,"Archie","Sama","KZ"),
@@ -159,7 +161,7 @@ class WallServiceTest{
                 123)
         )
         service.add(
-            Post(2,2,2,1,1,"Shynggys",
+            Post(100,2,2,1,1,"Shynggys",
                 1,1,true,
                 CommentPost(2,true,false,false,true),
                 Copyright(1,"Archie","Sama","KZ"),
