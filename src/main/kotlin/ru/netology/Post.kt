@@ -2,7 +2,7 @@ package ru.netology
 
 
 data class Post (
-    var id:Int =-1,//идентификатор записи.
+    var post_id:Int =-1,//идентификатор записи.
     val owner_id: Int =-1,//идентификатор владельца стены, на которой размещена запись
     val from_id:Int =-1,//идентификатор автора записи
     val created_by:Int =-1,//идентификатор администратора, который опубликовал запись
@@ -11,9 +11,9 @@ data class Post (
     val reply_Owner_id:Int =-1,//идентификатор владельца записи, в ответ на которую была оставлена текущая.
     val reply_post_id:Int =-1,//дентификатор записи, в ответ на которую была оставлена текущая.
 
-    val friends_only:Boolean =false ,//, если запись была создана с опцией «Только для друзей».
+    val friends_only:Boolean =false,//, если запись была создана с опцией «Только для друзей».
 
-    val comments:Comment?=null,//информация о комментариях к записи,
+    val comments:CommentPost?=null,//информация о комментариях к записи,
     val copyright :Copyright?=null,//источник материала, объект с полями:
     val likes:Like?=null,//информация о лайках к записи, объект с полями:
 
